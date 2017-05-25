@@ -2,6 +2,12 @@
 layout: default
 ---
 
+  <div class="date">
+    {% if page.authors %} {{ page.authors }} {% endif %}
+    <br />
+    {{ page.date | date: "%B %e, %Y" }}
+  </div>
+
 <article class="post">
   <h1>{{ page.title }}</h1>
   
@@ -11,12 +17,6 @@ layout: default
   
   <div class="entry">
     {{ content }}
-  </div>
-
-  <div class="date">
-    {% if page.authors %} {{ page.authors }} {% endif %}
-    <br />
-    {{ page.date | date: "%B %e, %Y" }}
   </div>
   <br />
   <center>{% include share-links.html %}</center>
