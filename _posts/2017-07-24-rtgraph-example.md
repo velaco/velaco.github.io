@@ -1,31 +1,31 @@
 ---
 layout: post
-title: RtGraph Example - Observing How Far a Tweet Spreads Thanks to Retweeters
+title: RtGraph Example - Graphing How a Tweet Can Spread Among Retweeters
 authors: Aleksandar Ratesic
 excerpt_separator: <!--more-->
 ---
 
-*Note: Even though it's published, this article is still under review.*
+“How far can users' tweets spread thanks to their followers' retweets?” I asked myself one day. It's important to note that I was thinking in terms of degrees of separation rather than geographic distances. For example, if one of your followers retweets something you wrote, their followers will see that tweet and are now two steps away from you. If one of them does not follow you, but decides to retweet it further, their followers will be three steps away from you. And so on...
 
-“How far can users' tweets spread thanks to their followers' retweets?” I asked myself one day. To satisfy my curiosity, I wrote an R script that would allow me to graph the relationships between an author of a tweet and its retweeters. The script I used in this example is available at the [RtGraph repository](https://github.com/velaco/rtgraph){:target="blank"}. <!--more-->
+To satisfy my curiosity, I wrote an R script that would allow me to graph the relationships between an author of a tweet and its retweeters. The script I used in this example is available at the [RtGraph repository](https://github.com/velaco/rtgraph){:target="blank"}. <!--more-->
 
 ## Selecting a Tweet
 
-In some alternate universe, a popular version of me has a large and active Twitter following. However, that’s not the case in this universe, so I had to use an account belonging to another person or organization for this example. The code is written in R using [RStudio](https://www.rstudio.com/){:target="blank"}, so I thought it would be appropriate to use one of the tweets from their account. 
+In some alternate universe, a popular version of me has a large and active Twitter following. However, that’s not the case in this universe, so I had to use an account belonging to another person or organization to carry out this example. I wrote the script using [RStudio](https://www.rstudio.com/){:target="blank"}, so I thought it would be appropriate to use one of the tweets from their account. 
 
-Twitter’s REST API allows you to collect 100 of the most recent retweets and retweeters, so I took a look through their timeline to find a tweet with more than 100 retweets for the analysis. Here it is:
+Twitter’s REST API allows you to collect 100 of the most recent retweets and retweeters, so I looked through their timeline to find a tweet with more than 100 retweets for the analysis. Here it is:
 
 ![Tweet Selection]({{ site.baseurl }}/images/rt-graph/tweetContent.png)
 
-The script asks for the number (ID) of the tweet, which is found in the URL of the tweet:
+The script needs the number (ID) of the tweet, which is found in the URL of the tweet:
 
 ![Tweet ID]({{ site.baseurl }}/images/rt-graph/tweetURL.png)
 
 ## Data Collection and Output
 
-Once the script has a valid tweet ID to work with, it collects the IDs of the author's followers, the IDs of retweeters, and the IDs of each retweeter's followers. 
+Once the script has a valid tweet ID to work with, it collects the IDs of the author's followers, the IDs of retweeters, and the IDs of each retweeter's followers.
 
-Although the tweet at the time of writing had 191 retweets, 98 user IDs were collected. Seven users were not found (404 error) when a list of their followers was requested, so the final number of retweeters included in the graph was 91. Seventy-four of those users followed RStudio on Twitter.
+Although this tweet had 191 retweets at the time, only 98 user IDs were received. Seven users were not found (404 error) when a list of their followers was requested, so the final number of retweeters included in the graph was 91. Seventy-one of those users followed RStudio on Twitter.
 
 The script stores the retweeters' and their followers' IDs as a dataset of edges. In this example, the original dataset contained 32,913 edges. However, my aim was to plot only the relationships between retweeters, so for the final edge graph, the script selects only those edges that connect two retweeters. That brings the number of edges down to 86, which is much easier to visualize compared to thousands of edges.
 
@@ -65,7 +65,7 @@ The node dataset is required to associate each vertex in the graph with a user I
 10          282980773        No
 ```
 
-I used the *Following* attribute to color each node, which makes it easier to determine which retweeters follow the author and which ones don't.
+I used the *Following* attribute to color each node because that makes it easier to determine which retweeters follow the author and which ones don't.
 
 ```r
 V(rtsNetwork)$color <- ifelse(V(rtsNetwork)$Following == "Author",
@@ -82,21 +82,21 @@ The black node in the middle of the graph is the tweet and the arrows show in wh
 
 ![Retweeters]({{ site.baseurl }}/images/rt-graph/884795477178421248-RtGraph.png)
 
-In this example, 20 users retweeted the tweet even though they do not follow RStudio on Twitter. However, 11 of those users were able to see and retweet RStudio's tweet because they follow one or more of their followers.
+In this example, 20 users retweeted the tweet even though they do not follow RStudio on Twitter. Fourteen of those users were able to see and retweet RStudio's tweet because they followed another retweeter.
 
 Six retweeters were not linked to the author at all. My first guess was that they unfollowed RStudio or some of the other retweeters, but then I remembered that the API request came back with only 98 user IDs from a total of 191 retweeters. It's possible that a user whose ID was not collected allowed the tweet to reach those users. I also considered the possibility that those users are following someone who only liked the tweet, but did not retweet it. Although I was tempted to expand the script and collect the IDs of users who liked the tweet, I decided to drop that possibility for now.
 
-Two retweeters were three hops away from the author, which means that this tweet traveled at least four hops as it reached their followers. (A edge hop refers to the number of edges one would have to cross to travel from one vertex to another.) However, without a full set of user IDs from those who retweeted and liked a tweet, it is impossible to determine the exact number of hops a tweet .
+Two retweeters were three hops away from the author, which means that this tweet traveled at least four edge hops as it reached their followers. (An edge hop refers to the number of edges one would have to cross to travel from one vertex to another.) However, without a full set of user IDs from those who retweeted and liked a tweet, it is impossible to determine the exact maximum number of hops a tweet traveled.
 
 I found the edges of the graph interesting as well because some neighborhoods have a higher density than others. I was curious to see what a community detection algorithm would find, but I decided to leave that analysis for another time.
 
 ## Concluding Remarks
 
-Unfortunately, this script can never produce a complete graph because of the rate limitations determined by Twitter's API. Twitter has a rate limit of 15 requests for follower IDs, after which the script needs to take a 15-minute break, so it would take a lot of time to go through a lot of retweeters. Furthermore, the API also returns a maximum of 100 retweeters' IDs, and even if there are more than 100 retweets, it's not possible to collect all of their user IDs.
+Unfortunately, this script can never produce a complete graph because of the rate limitations determined by Twitter's API. Twitter has a rate limit of 15 requests for follower IDs, after which the script needs to take a 15-minute break, so it would take a lot of time to go through a lot of retweeters. Furthermore, the API also returns a maximum of 100 retweeters' IDs, and even if there are more than 100 retweets, it's not possible to collect all of their user IDs. 
 
-Despite those limitations, I was satisfied with the output and found the results interesting.
+Despite those limitations, I was satisfied with the output because it was interesting to observe how far a tweet can spread from the original author through retweeters.
 
-To view or download the script I used, visit the  [RtGraph repository](https://github.com/velaco/rtgraph){:target="blank"}.
+To view or download the script I used, visit the [RtGraph repository](https://github.com/velaco/rtgraph){:target="blank"}.
 
 ## Resources
 
