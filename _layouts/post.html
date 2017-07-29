@@ -37,7 +37,9 @@ layout: default
     {{ content }}
   </div>
   <br />
-  <center>{% include share-links.html %}</center>
+    <p id="post-meta">{{ tags_content }}</p>
+  <br />
+    <center>{% include share-links.html %}</center>
   <br />
   {% include disqus.html %}
 </article>
