@@ -10,6 +10,6 @@ My name is Aleksandar and the purpose of this website is to showcase the analyse
 
 ## Contact me
 
-* [E-mail](mailto:aco@acojekralj.com)
+* [E-mail](mailto:alex@whitedoganalytics.com)
 * [LinkedIn](https://www.linkedin.com/in/alex-ratesic)
 * [GitHub](https://github.com/velaco)
