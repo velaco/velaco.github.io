@@ -1,5 +1,5 @@
 ---
 layout: tags
-tag: Twitter
-permalink: /tag/Twitter/
+tag: twitteR
+permalink: /tag/twitteR/
 ---
