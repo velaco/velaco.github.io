@@ -6,7 +6,7 @@ tags: [R, igraph, path-analysis]
 excerpt_separator: <!--more-->
 ---
 
-![Psycho Dice Game]({{ site.baseurl }}/images/psycho-dice/PsychoDiceCover.jpg){: style="display:block;margin-left:auto;margin-right:auto"}
+![Psycho Dice Game]({{ site.url }}/images/psycho-dice/PsychoDiceCover.jpg){: style="display:block;margin-left:auto;margin-right:auto"}
 
 "What is the probability of ending a round with zero points in Dr. Burnörium's [Psycho Dice Russian Roulette Game](https://amzn.to/2KQNq6B){: target="_blank"}?" That question came up during a Psycho Dice gaming session, when we noticed that turns ending with zero points occur about a quarter of the time. I decided to check if the probability of getting zero points in theory is consistent with our observations in practice.
 
@@ -33,7 +33,7 @@ Your turn ends when all five dice are discarded.
 
 For each roll, I generated the probabilities of rolling between 0 and N bullets, where N is the number of dice in a roll. Then I used the [igraph](http://igraph.org) package to create a graph of possible paths from rolling 5 dice to 0 dice with the `graph_from_data_frame()` function. 
 
-![Psycho Dice 0-score Probability Graph]({{ site.baseurl }}/images/psycho-dice/PsychoDice.png){: style="display:block;margin-left:auto;margin-right:auto"}
+![Psycho Dice 0-score Probability Graph]({{ site.url }}/images/psycho-dice/PsychoDice.png){: style="display:block;margin-left:auto;margin-right:auto"}
 
 The nodes in the graph represent the number of dice in the current roll; the edges are paths to the number of dice in the next roll. Each edge is associated with the probability of taking that path. For example, if you throw five dice and get one bullet, you'll move from node 5 to node 4. (There is a 32.9% chance of that happening.)
 

@@ -16,11 +16,11 @@ In some alternate universe, a popular version of me has a large and active Twitt
 
 Twitter’s REST API allows you to collect 100 of the most recent retweets and retweeters, so I looked through their timeline to find a tweet with more than 100 retweets for the analysis. Here it is:
 
-![Tweet Selection]({{ site.baseurl }}/images/rt-graph/tweetContent.png)
+![Tweet Selection]({{ site.url }}/images/rt-graph/tweetContent.png)
 
 The script needs the number (ID) of the tweet, which is found in the URL of the tweet:
 
-![Tweet ID]({{ site.baseurl }}/images/rt-graph/tweetURL.png)
+![Tweet ID]({{ site.url }}/images/rt-graph/tweetURL.png)
 
 ## Data Collection and Output
 
@@ -81,7 +81,7 @@ V(rtsNetwork)$color <- ifelse(V(rtsNetwork)$Following == "Author",
 
 The black node in the middle of the graph is the tweet and the arrows show in which directions it can spread among retweeters. Green nodes represent the retweeters who are also the author's followers, whereas the red nodes are retweeters who do not follow the author on Twitter.
 
-![Retweeters]({{ site.baseurl }}/images/rt-graph/884795477178421248-RtGraph.png)
+![Retweeters]({{ site.url }}/images/rt-graph/884795477178421248-RtGraph.png)
 
 In this example, 20 users retweeted the tweet even though they do not follow RStudio on Twitter. Fourteen of those users were able to see and retweet RStudio's tweet because they followed another retweeter.
 
