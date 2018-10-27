@@ -8,15 +8,15 @@ This page contains links to useful websites that I often use/visit and are relat
 
 ## Blogs
 
-[R-bloggers](https://www.r-bloggers.com/){:target="blank"} - blog aggregator that publishes articles contributed by hundreds of R bloggers.
+[R-bloggers](https://www.r-bloggers.com/){:target="blank"} - blog aggregator that publishes high-quality articles contributed by hundreds of R bloggers.
 
 ## Books
 
 ### R
 
-[Advanced R](http://adv-r.had.co.nz/){:target="blank"} - I got this book before I could really understand it, but now I love it. The link will take you to the companion website, where you can read it online, or you can get a [physical copy from Amazon](https://www.amazon.com/Advanced-Chapman-Hall-Hadley-Wickham/dp/1466586966){:target="blank"}. 
+[Advanced R](http://adv-r.had.co.nz/){:target="blank"} - I got this book before I could really understand it, but now I love it. The link will take you to the companion website, where you can read it online, or you can get a [physical copy from Amazon](https://amzn.to/2yzIsmF){:target="blank"}. 
 
-[Machine Learning with R](https://www.amazon.com/Machine-Learning-R-Brett-Lantz/dp/1782162143){:target="blank"} - This book was my first contact with machine learning. It provides a great overview of machine learning algorithms and serves as a great reference point for more advanced topics in R and machine learning.
+[Machine Learning with R](https://amzn.to/2SlixYb){:target="blank"} - This book was my first contact with machine learning. It provides a great overview of machine learning algorithms and serves as a great reference point for more advanced topics in R and machine learning.
 
 ## Job Boards
 

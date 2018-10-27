@@ -8,3 +8,9 @@ twitteR:
   name: twitteR
 path-analysis:
   name: Path Analysis
+docker:
+  name: Docker
+alpine:
+  name: Alpine Linux
+shiny:
+  name: Shiny

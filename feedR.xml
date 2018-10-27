@@ -4,6 +4,7 @@ layout: null
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
+    <atom:link href="https://velaco.github.io/feedR.xml" rel="self" type="application/rss+xml" />
     <title>Curiosity Killed the Cat – (... but satisfaction brought it back.)</title>
     <description>R posts from the blog Curiosity Killed the Cat</description>
     <link>{{ site.url }}</link>
@@ -14,7 +15,7 @@ layout: null
 				  <item>
 					  <title>{{ post.title | xml_escape }}</title>
 					  <description>{{ post.content | xml_escape }}</description>
-					  <pubDate>{{ post.date | date_to_xmlschema }}</pubDate>
+					  <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
 					  <link>{{ post.url | prepend: site.url }}</link>
 					  <guid isPermaLink="true">{{ post.url | prepend: site.url }}</guid>
 				  </item>
