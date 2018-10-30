@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Building a Repository of Alpine-based Docker Images for R, Part I
+date: 2018-10-30 23:59:00 +0100
 authors: Aleksandar Ratesic
 tags: [R, shiny, docker, alpine]
 excerpt_separator: <!--more-->
