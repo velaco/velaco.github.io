@@ -7,10 +7,10 @@ Twitter:
 twitteR:
   name: twitteR
 path-analysis:
-  name: Path Analysis
+  name: path-analysis
 docker:
-  name: Docker
+  name: docker
 alpine:
-  name: Alpine Linux
+  name: alpine
 shiny:
-  name: Shiny
+  name: shiny
