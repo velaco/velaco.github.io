@@ -7,6 +7,9 @@ layout: null
     <atom:link href="https://velaco.github.io/feedR.xml" rel="self" type="application/rss+xml" />
     <title>Curiosity Killed the Cat – (... but satisfaction brought it back.)</title>
     <description>R posts from the blog Curiosity Killed the Cat</description>
+    <author>
+      <name>Aleksandar Ratesic</name>
+    </author>
     <link>{{ site.url }}</link>
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <generator>Jekyll v{{ jekyll.version }}</generator>
