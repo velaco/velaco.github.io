@@ -3,7 +3,7 @@ layout: null
 ---
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
-    <title>Curiosity</title>
+    <title>Curiosity Killed the Cat</title>
     <description>R posts from the blog Curiosity Killed the Cat</description>
     <link>{{ site.url }}</link>
     <atom:link href="https://velaco.github.io/feedRtitle.xml" rel="self" type="application/rss+xml" />
