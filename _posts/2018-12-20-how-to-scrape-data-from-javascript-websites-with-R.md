@@ -65,7 +65,7 @@ page.open(url, function (status) {
 });
 ```
 
-The purpose of this script is to retrieve the HTML file from the specified URL and store it into an HTML file, so that R can read contents from that file instead of reading the contents from the source URL.
+The purpose of this script is to retrieve the HTML file from the specified URL and store it into a local HTML file, so that R can read contents from that file instead of reading the contents directly from the URL.
 
 We can then use the `system()` function to invoke the script from R and repeat the steps outlined in the attempt without PhantomJS to extract the data:
 
@@ -116,6 +116,7 @@ There's still some useless data mixed in, and there is no guarantee that I can t
                            Home = odds[odds_selector], 
                            Draw = odds[(odds_selector + 1)], 
                            Away = odds[(odds_selector + 2)])
+                           
 > head(pp_odds_df)
                                      Match  Home  Draw  Away
 1                    Bahrain vs Tajikistan   4/7  13/5   5/1
@@ -126,8 +127,8 @@ There's still some useless data mixed in, and there is no guarantee that I can t
 6             Botosani vs Dunarea Calarasi  8/13   5/2   9/2
 ```
 
-Now I can further transform odds to decimal so that I can store them as a numeric data type, split the Match column into "Home Team" and "Away Team" columns, and so on.
+Now I can further transform the data before storing and analyzing it, e.g. convert fractional odds into decimal, split the Match column into "Home Team" and "Away Team" columns, and so on.
 
 ## Final Comments
 
-Although the script I used still works today, I should note that the development of PhantomJS is currently suspended and its [git repository](https://github.com/ariya/phantomjs){:target="blank"} is archived. However, there are many ways to collect data from a JavaScript website, so you can also try using [*rvest* and *V8* from R](https://datascienceplus.com/scraping-javascript-rendered-web-content-using-r/){:target="blank"} or [Python and Selenium](https://medium.com/@hoppy/how-to-test-or-scrape-javascript-rendered-websites-with-python-selenium-a-beginner-step-by-c137892216aa){:target="blank"} to collect the data you need. Good luck!
+Although the script I used still works today, I should note that the development of PhantomJS is currently suspended and its [git repository](https://github.com/ariya/phantomjs){:target="blank"} is archived. However, there are many ways to collect data from a JavaScript-rendered website, so you can also try using [*rvest* and *V8* from R](https://datascienceplus.com/scraping-javascript-rendered-web-content-using-r/){:target="blank"} or [Python and Selenium](https://medium.com/@hoppy/how-to-test-or-scrape-javascript-rendered-websites-with-python-selenium-a-beginner-step-by-c137892216aa){:target="blank"} to collect the data you need. Good luck!
