@@ -14,3 +14,9 @@ alpine:
   name: alpine
 shiny:
   name: shiny
+rvest:
+  name: rvest
+phantomjs:
+  name: phantomjs
+scraping:
+  name: scraping
